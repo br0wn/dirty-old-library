@@ -1,0 +1,9 @@
+entity: User
+locale: 'en'
+processor: ../processor/user.processor.js
+items:
+  user1:
+    firstName: '<{process.env.USER_FIRST_NAME}>'
+    lastName: '<{process.env.USER_LAST_NAME}>'
+    email: '<{process.env.USER_EMAIL}>'
+    password: '<{process.env.USER_PASSWORD}>'

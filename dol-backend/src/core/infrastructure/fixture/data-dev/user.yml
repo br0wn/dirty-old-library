@@ -1,0 +1,9 @@
+entity: User
+locale: 'en'
+processor: ../processor/user.processor.js
+items:
+  user{1..5}:
+    firstName: '{{name.firstName}}'
+    lastName: '{{name.lastName}}'
+    email: 'user($current)@app.com'
+    password: 'password'

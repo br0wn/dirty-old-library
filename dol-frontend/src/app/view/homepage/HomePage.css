@@ -1,0 +1,15 @@
+@media only screen and (max-width: 500px) {
+    .homePageHolder {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .homePageHolder {
+        flex-direction: row;
+    }
+}
+
+.container {
+    margin-bottom: 25%;
+}

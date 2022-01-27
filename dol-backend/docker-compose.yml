@@ -1,0 +1,42 @@
+version: '2'
+
+services:
+
+  postgres:
+    image: postgres:12
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=dirtyold
+      - POSTGRES_PASSWORD=dirtyold
+      - POSTGRES_DB=dirtyold
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer:4.7.7
+    restart: always
+    ports:
+      - 8080:8080
+    links:
+      - postgres
+    depends_on:
+      - postgres
+
+  minio:
+    image: minio/minio
+    ports:
+      - 9000:9000
+    volumes:
+      - minio:/data
+    environment:
+      MINIO_ACCESS_KEY: accessKey
+      MINIO_SECRET_KEY: secretKey
+    command: server /data
+
+volumes:
+  postgres:
+    driver: local
+  minio:
+    driver: local
